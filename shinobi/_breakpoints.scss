@@ -1,0 +1,184 @@
+@use "sass:math";
+
+$breakpoints: (
+	xs: 0,
+	sm: 320px,
+	md: 600px,
+	lg: 810px,
+	xl: 1200px,
+);
+
+@mixin xl {
+	@media (min-width: map-get($breakpoints, lg)) {
+		@content;
+	}
+}
+@mixin lg {
+	@media (max-width: map-get($breakpoints, lg)) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (max-width: map-get($breakpoints, md)) {
+		@content;
+	}
+}
+@mixin sm {
+	@media (max-width: map-get($breakpoints, sm)) {
+		@content;
+	}
+}
+@mixin xs {
+	@media (max-width: map-get($breakpoints, xs)) {
+		@content;
+	}
+}
+
+@mixin breakpoint($bp: 0) {
+	@media (max-width: $bp) {
+		@content;
+	}
+}
+
+// Desktop breakpoint 1200px
+
+// Header styles
+@include xl {
+	.harmburger-menu {
+		display: none;
+	}
+}
+
+@include breakpoint(1044px) {
+	// Grid styles
+	.grid-section {
+		padding-top: $basePadding * 3;
+	}
+}
+
+// Tab breakpoints 810px
+
+@include lg {
+	// Header styles
+	.left-nav ul {
+		display: none;
+	}
+
+	.right-nav {
+		display: none;
+	}
+
+	.harmburger-menu {
+		display: block;
+	}
+	// Hero styles
+
+	.hero-section-container {
+		padding-top: $basePadding * 2.5;
+		padding-bottom: 0;
+		.hero-heading {
+			width: 100%;
+			font-size: $baseFontSizes * 6;
+			margin-bottom: $baseMargin * 3;
+		}
+		.hero-paragraph {
+			font-size: $baseFontSizes * 2;
+			width: 100%;
+		}
+	}
+
+	// Line styles
+	.card-line::before {
+		top: 42%;
+		left: 0;
+	}
+
+	.card-line::after {
+		bottom: 18%;
+		left: 0;
+	}
+}
+
+// Custom breakpoint 660px
+
+@include breakpoint(660px) {
+	// Grid section styles
+
+	.grid-section {
+		.grid-section-container {
+			.card-span {
+				padding-left: $basePadding * 2;
+
+				flex-wrap: wrap;
+				.card-left {
+					flex-direction: column;
+					gap: $basePadding * 2;
+
+					.card-info {
+						gap: $basePadding * 2;
+					}
+
+					.card-img {
+						align-self: flex-start;
+					}
+				}
+
+				.card-right {
+					align-items: flex-start;
+					// outline: 3px solid red;
+				}
+			}
+		}
+	}
+
+	// Line styles
+	.card-line::before {
+		top: 38.5%;
+		left: 0;
+	}
+
+	.card-line::after {
+		bottom: 25%;
+		left: 0;
+	}
+}
+
+// Mobile breakpoint 600px
+
+@include md {
+	// Header styles
+	.header-container {
+		p {
+			font-size: $baseFontSizes * 1.5;
+		}
+	}
+
+	// Grid section styles
+
+	.grid-section {
+		.grid-section-container {
+			grid-template-columns: 100%;
+
+			.img-grid {
+				display: none;
+			}
+
+			.card {
+				padding-left: $basePadding * 2;
+				grid-column: 1 / 2;
+			}
+		}
+	}
+
+	// line styles
+	.card-line::before {
+		top: 36%;
+		left: 0;
+	}
+
+	.card-line::after {
+		bottom: 31%;
+		left: 0;
+	}
+}

@@ -1,0 +1,27 @@
+@mixin btn($bg: $blackColor, $color: $blackColor) {
+	color: $color;
+	background-color: $bg;
+	text-decoration: none;
+	// font-weight: bold;
+	border-radius: 0.25rem;
+	outline: none;
+	border: none;
+}
+
+.btn-primary {
+	@include btn($bg: $blackColor, $color: $firstWhiteColor);
+}
+
+.btn-secondary-one {
+	@include btn($bg: $firstWhiteColor);
+}
+
+.btn-secondary {
+	@include btn($bg: $secondWhiteColor);
+}
+
+.btn-accent {
+	font-size: 0.75rem;
+	@include btn($bg: $greyColor, $color: $greyColorText);
+	// font-weight: normal;
+}

@@ -1,0 +1,185 @@
+@use "sass:math";
+
+// Spacing
+$basePadding: 0.5rem;
+$baseMargin: 0.25rem;
+
+// Font
+$baseFontSizes: 0.5rem;
+
+$spacing: (
+	"padding-top": (
+		"prefix": "pt",
+		"values": (
+			0: 0,
+			1: $basePadding / 2,
+			2: $basePadding,
+			3: $basePadding * 2,
+			4: $basePadding * 4,
+			5: $basePadding * 6,
+			6: $basePadding * 8,
+			7: $basePadding * 10,
+		),
+	),
+
+	"padding-bottom": (
+		"prefix": "pb",
+		"values": (
+			0: 0,
+			1: $basePadding / 2,
+			2: $basePadding,
+			3: $basePadding * 2,
+			4: $basePadding * 4,
+			5: $basePadding * 6,
+			6: $basePadding * 8,
+			7: $basePadding * 10,
+		),
+	),
+
+	"padding-left": (
+		"prefix": "pl",
+		"values": (
+			0: 0,
+			1: $basePadding / 2,
+			2: $basePadding,
+			3: $basePadding * 2,
+			4: $basePadding * 4,
+			5: $basePadding * 6,
+			6: $basePadding * 8,
+		),
+	),
+
+	"padding-right": (
+		"prefix": "pr",
+		"values": (
+			0: 0,
+			1: $basePadding / 2,
+			2: $basePadding,
+			3: $basePadding * 2,
+			4: $basePadding * 4,
+			5: $basePadding * 6,
+			6: $basePadding * 8,
+		),
+	),
+
+	"margin-top": (
+		"prefix": "mt",
+		"values": (
+			0: 0,
+			1: $baseMargin / 2,
+			2: $baseMargin,
+			3: $baseMargin * 2,
+			4: $baseMargin * 4,
+			5: $baseMargin * 6,
+			6: $baseMargin * 8,
+		),
+	),
+	// ),
+	"margin-bottom":
+		(
+			"prefix": "mb",
+			"values": (
+				0: 0,
+				1: $baseMargin / 2,
+				2: $baseMargin,
+				3: $baseMargin * 2,
+				4: $baseMargin * 4,
+				5: $baseMargin * 6,
+				6: $baseMargin * 8,
+				7: $baseMargin * 10,
+				8: $baseMargin * 12,
+			),
+		),
+	// ),
+	"margin-right":
+		(
+			"prefix": "mr",
+			"values": (
+				0: 0,
+				1: $baseMargin / 2,
+				2: $baseMargin,
+				3: $baseMargin * 2,
+				4: $baseMargin * 4,
+				5: $baseMargin * 6,
+				6: $baseMargin * 8,
+			),
+		),
+
+	"margin-left": (
+		"prefix": "ml",
+		"values": (
+			0: 0,
+			1: $baseMargin / 2,
+			2: $baseMargin * 2,
+			3: $baseMargin * 4,
+			4: $baseMargin * 6,
+			5: $baseMargin * 8,
+		),
+	),
+
+	"font-size": (
+		"prefix": "fs",
+		"values": (
+			0: 0,
+			1: $baseFontSizes,
+			2: $baseFontSizes * 2,
+			3: $baseFontSizes * 2.5,
+			4: $baseFontSizes * 3,
+			5: $baseFontSizes * 3.5,
+			6: $baseFontSizes * 4,
+			7: $baseFontSizes * 5,
+			8: $baseFontSizes * 5.5,
+			9: $baseFontSizes * 6,
+			10: $baseFontSizes * 6.5,
+			11: $baseFontSizes * 7,
+			12: $baseFontSizes * 7.5,
+			13: $baseFontSizes * 8,
+			14: $baseFontSizes * 8.5,
+			15: $baseFontSizes * 9,
+			16: $baseFontSizes * 9.5,
+			17: $baseFontSizes * 10,
+			18: $baseFontSizes * 10.5,
+			19: $baseFontSizes * 11,
+			20: $baseFontSizes * 11.5,
+		),
+	),
+
+	"line-height": (
+		"prefix": "lh",
+		"values": (
+			0: 0,
+			1: $baseFontSizes,
+			2: $baseFontSizes * 2,
+			3: $baseFontSizes * 2.5,
+			4: $baseFontSizes * 3,
+			5: $baseFontSizes * 3.5,
+			6: $baseFontSizes * 4,
+			7: $baseFontSizes * 5,
+			8: $baseFontSizes * 5.5,
+			9: $baseFontSizes * 6,
+			10: $baseFontSizes * 6.5,
+			11: $baseFontSizes * 7,
+			12: $baseFontSizes * 7.5,
+			13: $baseFontSizes * 8,
+			14: $baseFontSizes * 8.5,
+			15: $baseFontSizes * 9,
+			16: $baseFontSizes * 9.5,
+			17: $baseFontSizes * 10,
+			18: $baseFontSizes * 10.5,
+			19: $baseFontSizes * 11,
+			20: $baseFontSizes * 11.5,
+		),
+	),
+);
+
+// Generating spacimng classes
+@each $property, $map in $spacing {
+	$prefix: map-get($map, "prefix");
+	$values: map-get($map, "values");
+
+	@each $key, $val in $values {
+		.#{$prefix}-#{$key} {
+			#{$property}: $val;
+		}
+	}
+}

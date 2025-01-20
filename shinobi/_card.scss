@@ -1,0 +1,10 @@
+%card-container {
+	color: $blackColor;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.card {
+	@extend %card-container;
+}

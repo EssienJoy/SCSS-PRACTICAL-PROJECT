@@ -1,0 +1,57 @@
+@use "sass:math";
+
+// Major container holder
+.max-width-container {
+	margin: 0 auto;
+	max-width: 1200px;
+	width: 100%;
+	padding-left: $basePadding * 2;
+	padding-right: $basePadding * 2;
+}
+
+// flex-styles
+$display-styles: (
+	flex,
+	inline-flex,
+	grid,
+	inline-grid,
+	block,
+	inline-block,
+	inline,
+	none
+);
+
+@each $val in $display-styles {
+	.display#{$val} {
+		display: $val;
+	}
+}
+$layout-styles: (center, space-between, space-around, flex-start, flex-end);
+@each $val in $layout-styles {
+	.justify-#{$val} {
+		justify-content: $val;
+	}
+	.justify-self-#{$val} {
+		justify-self: $val;
+	}
+	.align-#{$val} {
+		align-items: $val;
+	}
+	.align-self-#{$val} {
+		align-self: $val;
+	}
+}
+
+$flex-direction-styles: (row, row-reverse, column, column-reverse);
+@each $val in $flex-direction-styles {
+	.flex-#{$val} {
+		flex-direction: $val;
+	}
+}
+
+$flex-wrap-styles: (wrap, nowrap, wrap-reverse);
+@each $val in $flex-wrap-styles {
+	.flex-#{$val} {
+		flex-wrap: $val;
+	}
+}
